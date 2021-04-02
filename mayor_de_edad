@@ -1,0 +1,43 @@
+/******************************************************************************
+
+programa que calcula y es o no mayor de edad
+
+*******************************************************************************/
+#include <stdio.h>
+#include <iostream>
+#include <math.h>
+using namespace std;
+int
+main ()
+{
+  int ano_de_naciemiento,ano_actual,mayor_de_edad;
+  cout << "ingrese ano_de_naciemiento------>";
+  cin >> ano_de_naciemiento;
+  cout << "ingrese ano_actual------>";
+  cin >> ano_actual;
+  mayor_de_edad = 18;
+  if ((ano_de_naciemiento)>(ano_actual))
+  cout << "ERROR Y  ";
+  if ((ano_de_naciemiento) < (1900))
+  cout << "ERROR Y  ";
+	    
+    if ((mayor_de_edad) < ( ano_actual - ano_de_naciemiento))
+    {
+      cout << "ES MAYOR DE EDAD ";
+    }
+  else
+    {
+      if ((mayor_de_edad) > ( ano_actual - ano_de_naciemiento))
+	{
+	  cout << "ES MENOR DE EDAD";
+	}
+	else
+	{
+	
+	    
+	    
+	}
+
+	}
+      return 0;
+    }
