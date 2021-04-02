@@ -1,0 +1,27 @@
+/******************************************************************************
+
+convertidor de pesos a dolares
+*******************************************************************************/
+#include <stdio.h>
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+{
+    float cantidad_de_pesos,trm;
+    float cantidad_de_dolares;
+    
+    cout << "ingrese cantidad_de_pesos----->";
+    cin >> cantidad_de_pesos;
+    cout << "ingrese trm------>";
+    cin >> trm;
+    
+    cantidad_de_dolares = (cantidad_de_pesos * trm);
+     cout << "dolares=  " <<cantidad_de_dolares<< "$";
+    
+    
+    
+
+
+    return 0;
+}
