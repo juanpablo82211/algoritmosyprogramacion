@@ -1,0 +1,56 @@
+/******************************************************************************
+juan pablo castaño ospina y jose miguel serna
+fecha: 10/04/2021
+
+*******************************************************************************/
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+   float deuda;
+   float descuento1,descuento2,descuento3,descuento4;
+   cout<<"escribir valor de la deuda----->";
+   cin>>deuda;
+   descuento1=(deuda*0.80);
+   descuento2=(deuda*0.70);
+   descuento3=(deuda*0.60);
+   descuento4=(deuda*0.50);
+   
+   
+   if (deuda>600000 and deuda<=1500000)
+   {
+       cout<<"el descuento es del 20% y ";
+       cout<<"el valor a pagar con descuento es "<<descuento1;
+   
+   }
+   else
+   {
+   if (deuda>1500000 and deuda<=3000000)
+   
+   {
+       cout<<"el descuento es del 30% y ";
+       cout<<"el valor a pagar con descuento es"<<descuento2;
+   }
+  else
+  {
+  if (deuda>3000000 and deuda<=8000000)
+  {
+      cout<<"el descuento es del 40% y ";
+      cout<<"el valor a pagar con descuento es "<<descuento3;
+  }
+  
+  else
+  {
+  if(deuda>8000000)
+  {
+      cout<<"el descunto es del 50% y";
+      cout<<"el valor a pagar con descuento es "<<descuento4;
+  }
+  }
+   }
+   
+}
+    return 0;
+}
