@@ -1,0 +1,50 @@
+/******************************************************************************
+
+juan pablo castaño y jose miguel serna ospina
+fecha: 10/04/2021
+
+*******************************************************************************/
+#include <stdio.h>
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+
+int main()
+{
+    int angulo1,angulo2,angulo3;
+cout<<"escriba angulo1------>";
+cin>>angulo1;
+cout<<"escriba angulo2------>";
+cin>>angulo2;
+cout<<"escriba angulo3------>";
+cin>>angulo3;
+
+if ((angulo1+angulo2+angulo3)==180)
+{
+    cout<< "es un triangulo y  ";
+
+    if ((angulo1>90)or (angulo2>90)or (angulo3>90))
+   {
+    cout<<"es un obtusangulo";
+   }
+    else
+    {
+    if ((angulo1==90)or(angulo2==90)or(angulo3==90))
+    {
+        cout<< "es un rectangulo";
+    }
+    else 
+    if ((angulo1<90)or(angulo2<90)or(angulo3<90))
+    {
+    cout<<"es un acutangulo";
+    }
+    }
+}
+  else
+   {
+       
+ cout<<"no es un triangulo";
+}
+    return 0;
+}
