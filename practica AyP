@@ -1,0 +1,271 @@
+/* Actividad Practica
+AUTHOR: JUAN PABLO CASTAÑO
+FECHA: 15 de sept del 2021
+*/
+#include <iostream>
+#include <ctime>
+#include <cmath>
+#include <cstdlib>
+#include <conio.h>
+#include <windows.h>
+#include <time.h>
+#include <stdio.h>
+
+using namespace std;
+void mostrar(int b [], int TAM);
+void vectorOrdenado (int b[], int TAM);
+void VectorAleatorio ( int a[], int TAM);
+short menu();
+void bienvenida();
+void matrizAleatoria();
+void matrizCambiada();
+void matrizMayorMenor ();
+int main()
+{
+	int dim;
+	int matriz[dim][dim];
+	int TAM = 150;
+	int a[TAM];
+	int opc;
+	bienvenida();
+
+	system("Pause");
+    do{
+    	
+	opc= menu ();
+	
+   switch(opc)
+   {
+   	case 1:system("cls");
+	    cout <<"==== NUMEROS ALEATORIOS \n\n";
+            VectorAleatorio (a, TAM);
+            mostrar(a, TAM);
+            vectorOrdenado(a, TAM);
+            cout<< endl;
+            system("Pause");
+            
+			break;
+	case 2:system("cls"); 
+	cout <<"====MATRIZ aleatoria nxn \n";
+            matrizAleatoria();
+            matrizCambiada();
+	         cout<< endl;
+            system("Pause");
+			break;
+	case 3: system("cls");
+	cout <<"=== MATRIZ PUNTO DE SILLA\n";
+	        matrizMayorMenor ();
+			cout<< endl;
+            system("Pause");
+			break;
+	case 0:	cout << "=== FINNNN \n";
+	         cout<< endl;
+            system("Pause");			
+			break;	
+   }
+       } while (opc != 0);
+
+	return 0;
+
+}
+
+void VectorAleatorio ( int a[], int TAM)
+{
+
+srand(time(0));
+	for(int i=0; i< TAM; i++)
+	{
+		a[i]= rand ()% 99;
+}
+}
+void mostrar (int b[], int TAM)
+{
+		cout<<"LOS NUMEROS ALEATORIOS SON: ";
+	for (int i= 0; i< TAM; i++)
+	{
+		
+		cout<<b[i]<<" ";
+	}
+	cout<< endl;
+	
+}
+
+
+void vectorOrdenado (int b[], int TAM)
+{
+	int i, j, aux;
+	
+	for(i=0; i<150;i++)
+	{
+		for(j=0;j<150;j++)
+		{
+			if(b[j]> b[j+1])
+			{
+				aux= b[j];
+				b[j]= b[j+1];
+				b[j+1]=aux;
+			}
+		}
+	}
+	cout<<"\n\nORDEN ASCENDENTE: ";
+	
+	for(i=0; i<150;i++)
+	{
+		cout<< b[i]<<",";
+	}
+
+	
+	for(i=0; i<150;i++)
+	{
+		for(j=0;j<150;j++)
+		{
+			if(b[j]< b[j+1])
+			{
+				aux= b[j];
+				b[j]= b[j+1];
+				b[j+1]=aux;
+			}
+		}
+	}
+	cout<<"\n\nORDEN DESCENDENTE: ";
+	
+	for(i=0; i<150;i++)
+	{
+		cout<< b[i]<<",";
+	}
+	cout<<"\n";
+}
+
+short menu()
+
+{
+	
+	short opcion;
+	system("cls");
+	system("Color 0E");
+	cout << "\t\t MENU DE OPCIONES \n\n";
+	
+	cout << "1. NUMEROS ALEATORIOS (ordenados de forma ascendente y descendente)"<<endl;
+	cout << "2. MATRIZ aleatoria nxn"<<endl;
+	cout << "3. Matriz Punto de Silla"<<endl;
+	cout << "0. TERMINAR"<<endl;
+	cout << "INGRESE OPCION=========>";
+	cin >> opcion;
+	while( opcion <0 or opcion > 3)
+	{
+	     cout << "INGRESE OPCION VALIDA=========>";	
+		cin>> opcion;
+	 	
+    }
+	return opcion;
+		
+}
+void gotoxy (int x, int y){
+	HANDLE hcon;
+	hcon = GetStdHandle (STD_OUTPUT_HANDLE);
+	COORD dwPos;
+	dwPos.X=x;
+	dwPos.Y=y;
+	SetConsoleCursorPosition(hcon,dwPos);
+}
+
+void bienvenida()
+
+{
+   string saludo[30]={"B","I","E","N","V","E","N","I","D","O","S"," ", "A","L"," ", "P","R","O","G","R","A","M","A\n\n\t\t\t\t" };
+   string nombre[30]={"\tJ","U","A","N"," ","P","A","B","L","O"," ","C","A","S","T","A","N","O\n\n\t\t\t"};
+
+    system ("color 0B");
+	gotoxy (38,13);
+	for (int i= 0; i<23; i++)
+    {
+    	cout<< saludo[i];
+    	Sleep(20);
+	}
+	for (int i= 0; i<23; i++)
+    {
+    	cout<< nombre[i];
+    	Sleep(20);
+	}
+
+   
+    	cout<< "LAS ACTIVIDADES A REALIZAR SON LA 4 Y LA 8 Y EL VECTOR 3\n\n\t\t\t";
+    	cout<<"LA FECHA DE REALIZACION FUE ENTRE SEPT 13 y 17 DEL 2021\n\n\t\t\t";
+    	Sleep(20);
+	
+}
+
+void matrizAleatoria()
+{
+	
+		int i,j,c,f,num;
+
+		cout<<"\n\nIngrese el numero de columnas de la matriz: ";
+		cin>>c;
+		cout<<"\n\nIngrese el numero de filas de la matriz: ";
+		cin>>f;
+		int matriz[c][f];
+		srand(time(NULL));
+		for(i=0; i<c; i++)
+		{cout<<"\n\n";
+		
+			for( j=0;j<f;j++)
+			{
+				
+				num=rand()%500;
+				matriz[i][j]=num;
+				num=0;
+				
+				cout<<"\t"<<matriz[i][j];
+		   }
+		}
+
+
+}
+void matrizCambiada()
+{
+	int cambio;
+	cout<<"\n"<<endl;
+	cout<<"INGRESE EL NUMERO DE CAMBIO: ";
+	cin>> cambio;
+	while (cambio< 0 or cambio> 9)
+	{
+		cout << "INGRESE NUMERO VALIDO=========>";	
+		cin>> cambio;
+	}
+} 
+
+void matrizMayorMenor ()
+{
+	int numeros[100][100],filas, columnas,num, mayor=0,menor=0;
+	cout<<"Ingrese numero de filas (0,9)= ";
+	cin>> filas;
+	while (filas< 0 or filas> 9)
+	{
+		cout << "INGRESE NUMERO VALIDO=========>";	
+		cin>> filas;
+	}
+	cout<<"Ingrese numero de columnas (0,9)= ";
+	cin>> columnas;
+	while (columnas< 0 or columnas> 9)
+	{
+		cout << "INGRESE NUMERO VALIDO=========>";	
+		cin>> columnas;
+	}
+		srand(time(NULL));
+		for(int i=0; i<columnas; i++)
+		{cout<<"\n\n";
+		
+			for( int j=0;j<filas;j++)
+			{
+				
+				num=rand()%9;
+				numeros[i][j]=num;
+				num=0;
+				
+				cout<<"\t"<<numeros[i][j];
+		   }
+		   
+		}
+		
+}
